@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  {% include "global/parciais/_nav.html" %}
+
+</head>
+
+<body>
+
+  {% include "global/parciais/_head.html" %}
+
+  <main class="content">
+    {% block content %}
+      
+    {% endblock content %}
+  </main>
+
+  {% include "global/parciais/pagination.html" %}
+
+</body>
+
+</html>
