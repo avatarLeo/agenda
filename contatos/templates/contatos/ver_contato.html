@@ -27,5 +27,37 @@
           <p><b>Descrição:</b>
                 {{ contacts.descricao }}
           </p>
+          {% if contacts.foto %}
+            <p>
+                <img src="{{ contacts.foto.url }}" alt="{{ contacts.nome }} {{contacts.sobrenome}}">
+            </p>
+          {% endif %}
+
+          <div class="contact-links">
+            <a class="btn btn-link" href="{% url 'contato:update' contacts.id %}">Update</a>
+
+            <form id="form_contact" action="{% url 'contato:delete' contacts.id %}" method="POST">
+                {% csrf_token %}
+                
+            </form>
+            <button onclick="show();" class="btn btn-link btn-delete">Delete</button>
+          </div>
+
+          <section class="modal" id="overlay">
+            <div class="overlay">
+                <div class="notice">
+                    <h1>Atenção</h1>
+                    <p>O contato <b>{{ contacts.nome }}</b> será apagado.</p>
+                    <p>Deseja continuar?</p>
+                    <div class="btn-modal">
+                        <button class="btn btn-link btn-left" onclick="ocultModal();">Não</button>
+                        <button class="btn btn-link btn-delete btn-right"  type="submit"onclick="delete_contact();">Sim</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+       
+
       </div>
 {% endblock content%}
