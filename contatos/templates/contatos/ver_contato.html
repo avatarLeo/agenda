@@ -33,15 +33,17 @@
             </p>
           {% endif %}
 
-          <div class="contact-links">
-            <a class="btn btn-link" href="{% url 'contato:update' contacts.id %}">Update</a>
+          {% if user == contacts.owner %}
+            <div class="contact-links">
+                <a class="btn btn-link" href="{% url 'contato:update' contacts.id %}">Update</a>
 
-            <form id="form_contact" action="{% url 'contato:delete' contacts.id %}" method="POST">
-                {% csrf_token %}
-                
-            </form>
-            <button onclick="show();" class="btn btn-link btn-delete">Delete</button>
-          </div>
+                <form id="form_contact" action="{% url 'contato:delete' contacts.id %}" method="POST">
+                    {% csrf_token %}
+                    
+                </form>
+                <button onclick="show();" class="btn btn-link btn-delete">Delete</button>
+            </div>
+          {% endif %}
 
           <section class="modal" id="overlay">
             <div class="overlay">

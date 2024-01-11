@@ -3,7 +3,13 @@
 {% block content %}
 <div class="form-wrapper">
 
-    <h2>Login {{ user }} {{ user.is_authenticated }}</h2>
-    {% include "contatos/parciais/_user-partial.html" %}
+    <h2>Logino</h2>
+      {% if user.is_authenticated %}
+        <p>Olá, {{ user.username }} você ja está logado click <a href="{% url "contato:logout" %}">aqui</a> para sair
+        </p>
+      {% else %}
+        {% include "contatos/parciais/_user-partial.html" %}
+      {% endif %}
+  
   </div>
 {% endblock content %}
