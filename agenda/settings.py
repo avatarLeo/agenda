@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#r8*bmw)mbpavghp49zjy0c^di)5afvs114&pl)bsqx*&sqqwc'
+SECRET_KEY = 'Wbn=`Qz-y;N(<vK5rsw&>[sUxDHvQ9_!BgoWiXUGJN{x`ZLYo.4=>yQVC#~x\_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.101']
 
 
 # Application definition
@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'agenda.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'projeto_agenda',
+        'USER': 'usuario_agenda',
+        'PASSWORD': 'senha_usuario_agenda',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
